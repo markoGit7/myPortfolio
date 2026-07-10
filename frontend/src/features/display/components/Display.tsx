@@ -70,7 +70,7 @@ function Display({toggle}: DisplayProps) {
             <section ref={screen_ref} className='static lg:absolute top-1/2 left-1/2 translate-none lg:-translate-1/2 w-full lg:w-[calc(100%-100px)] h-auto lg:h-[calc(100%-100px)] overflow-x-hidden'>
                 {/* Top */}
                 <div className='bg-gray-300 h-8 w-full flex items-center'>
-                    <FontAwesomeIcon icon={faBars} className='ml-4 text-2xl block lg:hidden!' onClick={() => toggle(prev => !prev)}/>
+                    <FontAwesomeIcon icon={faBars} className='ml-4 text-2xl block lg:hidden!' onClick={() => toggle!(prev => !prev)}/>
                 </div>
                 {/* Location */}
                 <div className='bg-gray-200/70 h-8 w-full inline-flex items-center'>

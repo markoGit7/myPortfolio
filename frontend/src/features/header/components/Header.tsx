@@ -40,7 +40,7 @@ function Header({toggle}:DisplayProps) {
             
             {/* Top !?!?!?*/}
             <div className='w-full py-4 justify-end flex items-center'>
-                <FontAwesomeIcon icon={faSquareXmark} className='mr-3 text-2xl block lg:hidden!' onClick={() => toggle(prev => !prev)}/>
+                <FontAwesomeIcon icon={faSquareXmark} className='mr-3 text-2xl block lg:hidden!' onClick={() => toggle!(prev => !prev)}/>
             </div>
             {/* Horizontal line */}
             <div className='bg-gray-500 h-px w-full mb-2'/>
