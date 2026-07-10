@@ -1,9 +1,6 @@
-import { useState } from 'react'
-
 import {Layout} from './features/pages/index';
 
 function App() {
-    const [count, setCount] = useState(0)
 
     return (
         <Layout />

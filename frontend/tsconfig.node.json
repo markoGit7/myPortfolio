@@ -20,8 +20,6 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
 
-    // Strictness
-    "strict": false
   },
   "include": ["vite.config.ts"]
 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 
 import { Header } from '../header/index';
 import  { Display } from '../display/index';

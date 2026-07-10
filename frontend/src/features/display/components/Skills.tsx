@@ -1,4 +1,3 @@
-import React from 'react'
 import {javascript, nodejs, react, mysql, tailwindcss} from '../../../assets/images/index';
 
 function Skills() {

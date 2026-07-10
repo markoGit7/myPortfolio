@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import {useEffect, useRef} from 'react'
 
 import gsap from "gsap";
 
@@ -7,7 +7,7 @@ function Cursor() {
     const cursorRef = useRef(null);
 
     useEffect(() => {
-        const moveCursor = (e) => {
+        const moveCursor = (e:MouseEvent) => {
             gsap.to(cursorRef.current, {
             x: e.clientX,
             y: e.clientY,

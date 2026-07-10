@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
@@ -16,7 +16,7 @@ function Home() {
     const text_ref = useRef(null);
     const container_ref = useRef(null);
 
-    let min_width = gsap.matchMedia();
+    // let min_width = gsap.matchMedia();
       
     useGSAP(() => {
         

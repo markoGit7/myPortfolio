@@ -1,19 +1,25 @@
-import React, {useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // 2. Import specific icons from their free style packages
-import { faSquareXmark, faBars, faPentagon } from '@fortawesome/free-solid-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faSquareXmark, faPentagon } from '@fortawesome/free-solid-svg-icons';
 
 
+
+import type { RootState, AppDispatch } from '../../../app/store';
+
+type DisplayProps = {
+  toggle?: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
 // Redux
 import {useDispatch, useSelector} from 'react-redux';
 import {openHome, openProjects, openSkills, openEducation, openContact} from '../../display/pagesSlice';
-function Header({toggle}) {
-    const dispatch = useDispatch();
+function Header({toggle}:DisplayProps) {
+    const dispatch = useDispatch<AppDispatch>();
 
-    const activePage = useSelector(state => state.pages.activePage);
+    const activePage = useSelector(
+        (state: RootState) => state.pages.activePage
+    );
 
     const closeNavbar = () => {
         

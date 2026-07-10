@@ -1,13 +1,12 @@
-import React, {useState, useRef, useEffect} from 'react'
+import {useRef, useEffect} from 'react'
 
 // GSAP
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // 2. Import specific icons from their free style packages
-import { faSquareXmark, faBars} from '@fortawesome/free-solid-svg-icons';
+import { faBars} from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -20,8 +19,11 @@ import Contact from './Contact';
 // Hooks
 import { usePages } from '../hooks/useDisplay'
 
+type DisplayProps = {
+  toggle?: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-function Display({toggle}) {
+function Display({toggle}: DisplayProps) {
 
     const screen_ref = useRef(null);
     let min_width = gsap.matchMedia();
