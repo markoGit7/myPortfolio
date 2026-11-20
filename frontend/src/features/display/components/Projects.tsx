@@ -39,7 +39,7 @@ function Projects() {
                 opacity: 1,
                 duration: 0.8,
                 stagger: 0.4,
-                delay: 0.6, // waits 2.5 seconds
+                delay: .3, // waits 2.5 seconds
                 ease: "power3.inOut",
             }
         );
@@ -69,14 +69,14 @@ function Projects() {
                         {/* Inner Box */}
                         <div className='bg-gray-300/85 p-2 shadow-[3px_3px_5px_3px_rgba(0,0,0,0.3)] h-full relative pb-12'>
                             {/* Title */}
-                            <h2 className='font-bold'>Movies Website <span className='font-normal'>[ Full-Stack ]</span></h2>
+                            <h2 className='font-bold'>Movies Website <span className='font-normal' hidden>[ Full-Stack ]</span></h2>
                             <hr />
                             
                             {/* PROJECT DESCRIPTION (bullets, etc) */}
                             <ul className='dottedList mt-3'>
-                                <li>JWT Authentication</li>
+                                <li hidden>JWT Authentication</li>
                                 <li>IMDb API Integration</li>
-                                <li>Likes, Comments & Replies</li>
+                                <li hidden>Likes, Comments & Replies</li>
                                 <li>Advanced Filtering & Search</li>
                             </ul>
 
@@ -101,7 +101,7 @@ function Projects() {
 
                                 {/* Demo Button */}
                                 <div className='inline-block'>
-                                    <a href='https://movies-app-steel-ten.vercel.app/' target='_black'>
+                                    <a href='https://movie-center-space.vercel.app/' target='_black'>
                                         <FontAwesomeIcon icon={faUpRightFromSquare}
 
                                             data-tooltip-id="demo"
@@ -194,12 +194,6 @@ function Projects() {
 
                     </div>
                 </div>
-
-
-                
-
-                
-
             </div>
         </div>
     )

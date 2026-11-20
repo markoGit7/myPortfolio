@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-#main-section {
+#main-section, #loader {
     background-image: url('../images/background.png');
     background-position: center;
     background-repeat: no-repeat;

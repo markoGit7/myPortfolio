@@ -5,14 +5,17 @@ import  { Display } from '../display/index';
 
 import Cursor from '../Cursor/Cursor';
 
+import { Loader } from '../../particles';
+
 function Layout() {
 
     const [burgerToggle, setBurgerToggle] = useState<boolean>(false);
 
-    console.log("Burger Toggle Button: ", burgerToggle);
+
     return (
         <>
-           
+           <Loader />
+
            <Cursor />
 
             <section className='w-full relative min-h-dvh' id='main-section'>

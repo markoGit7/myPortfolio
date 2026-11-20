@@ -10,12 +10,26 @@ function Education() {
                 <div className='w-full flex relative justify-between bg-gray-200/90 p-3 rounded-lg '>
                     {/* Left */}
                     <div>
-                        <h2 className='uppercase font-bold text-sm sm:text-xl '>Computer Science</h2>
+                        <h2 className='uppercase font-bold text-sm sm:text-xl '>Computer Science (Bachelor’s)</h2>
                         <p className='italic text-[12px] sm:text-base'>International Slavic University</p>
                     </div>
                     {/* Right */}
                     <div className='self-center pl-2 sm:pl-0'>
-                        <span className='block text-[10px] sm:text-sm mb-1 text-end'>2022-2026</span>
+                        <span className='block text-[10px] sm:text-sm mb-1 text-end'>2022 - 2026</span>
+                        <span className='block text-[10px] sm:text-sm'>Bitola, Macedonia</span>
+                    </div>
+                </div>
+
+                {/* Sector */}
+                <div className='w-full flex relative justify-between bg-gray-200/90 p-3 rounded-lg '>
+                    {/* Left */}
+                    <div>
+                        <h2 className='uppercase font-bold text-sm sm:text-xl '>Computer Science (Master’s)</h2>
+                        <p className='italic text-[12px] sm:text-base'>International Slavic University</p>
+                    </div>
+                    {/* Right */}
+                    <div className='self-center pl-2 sm:pl-0'>
+                        <span className='block text-[10px] sm:text-sm mb-1 text-end'>2026 - Present</span>
                         <span className='block text-[10px] sm:text-sm'>Bitola, Macedonia</span>
                     </div>
                 </div>

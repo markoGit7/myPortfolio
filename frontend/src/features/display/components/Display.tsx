@@ -30,9 +30,31 @@ function Display({toggle}: DisplayProps) {
 
     
     const {
-        activePage
-        
+        activePage    
     } = usePages();
+
+    // dissapear on resize issue fixer
+    useEffect(() => {
+
+        window.addEventListener("resize", () => {
+            const width = window.innerWidth;
+
+            if (width > 1023) {
+                const styles = {
+                    opacity: 1,
+                    width: 'auto',
+                }
+                screen_ref.current.style = styles;
+            } else {
+                const styles = {
+                    opacity: 1,
+                    width: '100%',
+                }
+                screen_ref.current.style = styles
+            }
+        })
+
+    }, []);
     
     useEffect(() => {
 
@@ -46,16 +68,16 @@ function Display({toggle}: DisplayProps) {
 
                 {
                     overflow:"hidden",
-                    opacity:0,
+                    autoAlpha:0,
                     width:0,
                 },
                 
                 {
                     overflow:"auto",
                     width:"calc(100% - 100px)",
-                    opacity:1,
-                    duration:1,
-                    ease:"power3.inOut",
+                    duration: .75,
+                    autoAlpha:1,
+                    ease:"power4.inOut",
                 }
             )
 
@@ -64,6 +86,7 @@ function Display({toggle}: DisplayProps) {
 
 
     }, [activePage]);
+
 
     return (
         <>

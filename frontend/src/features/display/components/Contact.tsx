@@ -1,29 +1,58 @@
 import {useState, useEffect} from 'react'
 
-
 function Contact() {
 
-    const [copyMsg, setCopyMsg] = useState<boolean>(false);
+    const [showMessage, setShowMessage] = useState<boolean>(false);
+    const [showToolTip, setShowToolTip] = useState<boolean>(false);
+
+    const [message, setMessage] = useState({
+        message: '',
+        type: '',
+        delay: 0
+    });
+    
+    function copyNotification (message:string, type = 'sucess', delay = 3000) {
+
+        console.log('before prev');
+        setMessage((prev:Object) => ({
+            message: message,
+            type: type || 'sucess',
+            delay: delay,
+        }));
+
+        setShowMessage(true);
+
+    }
+
 
     useEffect(() => {
-        
-        if(!copyMsg) return;
-        
-        const interval = setInterval(() => {
-            
-            setCopyMsg(false);
 
-            clearInterval(interval);
-        
-        }, 2000);
-    
-    
-      
-    }, [copyMsg])
-    
+        if (!showMessage) return;
+
+        console.log('reading message');
+        setTimeout(() => {
+
+            setShowMessage(false);
+
+        }, message?.delay);
+
+    }, [showMessage]);
+
+
+    function submitForm (e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        copyNotification('This feature is currently unavailable', 'error');
+    }
 
     return (
         <>
+            {
+                showMessage && (
+                    <div className={`min-w-50 p-3 z-20 absolute top-3 left-1/2 -translate-x-1/2 text-white ${message.type === 'error' ? 'bg-red-500' : 'bg-green-500'}`}>{message.message}</div>
+                )
+            }
+            
+
             <div className='bg-black absolute inset-0 shape-triangle hidden lg:block' />
             <div className='relative h-full z-2'>
                 <h2 className='uppercase font-bold mb-10 text-white text-3xl lg:block hidden'>Get In Touch</h2>
@@ -32,7 +61,7 @@ function Contact() {
                 <div className='w-full lg:w-1/2 h-auto rounded-lg mb-10 relative'>
                     
                     <h2 className='uppercase font-bold mb-10 text-white text-3xl lg:hidden block'>Get In Touch</h2>
-                    <form >
+                    <form onSubmit={(e) => submitForm(e)}>
                             
                         {/* Name */}
                         <div className='w-full mb-8'>
@@ -91,9 +120,9 @@ function Contact() {
                     <li className='mb-2 md:mb-3 lg:mb-4 last:mb-0 relative'>
                         <span className='inline-block relative group overflow-hidden'>
                             {/* Normal */}
-                            <span onClick={() => { navigator.clipboard.writeText("m.mijakovski07@gmail.com"), setCopyMsg(true) }} className='relative inline-block text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold uppercase lg:group-hover:-translate-y-full duration-300 ease-in-out transition-all lg:before:hidden before:content-[""] before:bg-orange-400 before:w-1/2 before:h-0.5 before:absolute before:bottom-0 before:left-0'>Email</span>
+                            <span onClick={() => { navigator.clipboard.writeText("m.mijakovski07@gmail.com"), setShowToolTip(true) }} className='relative inline-block text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold uppercase lg:group-hover:-translate-y-full duration-300 ease-in-out transition-all lg:before:hidden before:content-[""] before:bg-orange-400 before:w-1/2 before:h-0.5 before:absolute before:bottom-0 before:left-0'>Email</span>
                             {/* Hover */}
-                            <span onClick={() => { navigator.clipboard.writeText("m.mijakovski07@gmail.com"), setCopyMsg(true) }} className='hidden lg:block [-webkit-text-stroke:1px_rgba(0,0,0,0.4)] text-5xl font-bold uppercase absolute top-full left-0 group-hover:top-0 text-orange-400 duration-300 ease-in-out transition-all'>Email</span>
+                            <span onClick={() => { navigator.clipboard.writeText("m.mijakovski07@gmail.com"), setShowToolTip(true) }} className='hidden lg:block [-webkit-text-stroke:1px_rgba(0,0,0,0.4)] text-5xl font-bold uppercase absolute top-full left-0 group-hover:top-0 text-orange-400 duration-300 ease-in-out transition-all'>Email</span>
                         
 
                         
@@ -101,7 +130,7 @@ function Contact() {
 
                         {/* tooltip */}
                         {
-                            copyMsg && (<div className='w-17 h-7 bg-orange-400 rounded-lg flex items-center justify-center text-white absolute top-0 left-1'>Copied!</div>)
+                            showToolTip && (<div className='w-17 h-7 bg-orange-400 rounded-lg flex items-center justify-center text-white absolute top-0 left-1'>Copied!</div>)
                         }
                     </li>
                 </ul>

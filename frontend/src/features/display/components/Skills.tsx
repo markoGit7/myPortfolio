@@ -1,4 +1,4 @@
-import {javascript, nodejs, react, mysql, tailwindcss} from '../../../assets/images/index';
+import {javascript, nodejs, react, mysql, tailwindcss, mongo, sails} from '../../../assets/images/index';
 
 function Skills() {
     return (
@@ -57,6 +57,26 @@ function Skills() {
                     <span className='block'>TailwindCSS</span>
                 </div>
 
+
+                {/* Sector */}
+                <div className='w-fit flex items-center gap-x-2 bg-gray-200/90 p-4 rounded-lg '>
+                    {/* Left */}
+                    <div className='w-10 h-10 rounded-full outline-1 outline-black overflow-hidden'>
+                        <img src={mongo} alt="" className='w-full h-full object-center object-cover rounded-full'/>
+                    </div>
+                    {/* Right */}
+                    <span className='block'>MongoDB</span>
+                </div>
+
+                {/* Sector */}
+                <div className='w-fit flex items-center gap-x-2 bg-gray-200/90 p-4 rounded-lg '>
+                    {/* Left */}
+                    <div className='w-10 h-10 rounded-full outline-1 outline-black overflow-hidden'>
+                        <img src={sails} alt="" className='w-full h-full object-center object-cover rounded-full'/>
+                    </div>
+                    {/* Right */}
+                    <span className='block'>Sails Js</span>
+                </div>
             </div>
         </>
     )
