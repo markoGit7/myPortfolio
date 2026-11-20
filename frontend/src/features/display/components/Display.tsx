@@ -25,7 +25,7 @@ type DisplayProps = {
 
 function Display({toggle}: DisplayProps) {
 
-    const screen_ref = useRef(null);
+    const screen_ref = useRef<HTMLDivElement>(null);
     let min_width = gsap.matchMedia();
 
     
@@ -40,17 +40,20 @@ function Display({toggle}: DisplayProps) {
             const width = window.innerWidth;
 
             if (width > 1023) {
-                const styles = {
+                const styles = JSON.stringify({
                     opacity: 1,
                     width: 'auto',
-                }
-                screen_ref.current.style = styles;
+                })
+
+                screen_ref.current!.style = styles;
             } else {
-                const styles = {
+                
+                const styles = JSON.stringify({
                     opacity: 1,
                     width: '100%',
-                }
-                screen_ref.current.style = styles
+                });
+
+                screen_ref.current!.style = styles
             }
         })
 

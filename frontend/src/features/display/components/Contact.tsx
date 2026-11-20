@@ -13,12 +13,16 @@ function Contact() {
     
     function copyNotification (message:string, type = 'sucess', delay = 3000) {
 
+        
         console.log('before prev');
-        setMessage((prev:Object) => ({
+
+        const obj = {
             message: message,
-            type: type || 'sucess',
+            type: type,
             delay: delay,
-        }));
+        }
+
+        setMessage(obj);
 
         setShowMessage(true);
 

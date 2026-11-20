@@ -1,10 +1,10 @@
-import React, {useState, useEffect, useRef} from "react"
+import {useState, useEffect, useRef} from "react"
 
 
 function PageLoader () {
 
     const [loading, setLoading] = useState(true);
-    const loadingCircle = useRef(null);
+    const loadingCircle = useRef<HTMLDivElement>(null);
     useEffect(() => {
 
         if (!loading) return;
@@ -17,11 +17,11 @@ function PageLoader () {
         
     }, [loading]);
     
-    function spinning (value = null) {
+    function spinning (value: number = 0) {
    
         let count = value;
 
-        if (!count) {
+        if (!count || count === 0) {
             count = 365 + 25;   
         
         } else if (count) {
@@ -29,8 +29,8 @@ function PageLoader () {
         }
 
         // to not show error after it dissapears
-        if (loadingCircle?.current?.style) {
-            loadingCircle.current.style.transform = `rotate(${count}deg)`;
+        if (loadingCircle?.current) {
+            loadingCircle.current!.style.transform = `rotate(${count}deg)`;
         }
         
 
